@@ -6,20 +6,19 @@ It's convenient, but it has a massive flaw. Attackers have been gaining access t
 sending a login QR code but accompanying it with a message like "Scan this QR code to
 redeem your Nitro gift!"
 
-To combat these scams, I created this Discord Bot which scans messages for QR codes and deletes any messages containing them.
+To combat these scams, someone created this Discord Bot which scans messages for QR codes and deletes any messages containing them. 
+
+However, it, too, has a massive flaw: Not all QR codes are bad. This is fixed by checking the URL it goes to. For link shorteners, it will unshorten the URL before checking to ensure it is safe. If it's not, it will be deleted.
 
 ## How to Use
 This bot has no settings and begins working as soon as it has been added to a server. It scans all attachments and embedded images.
+
 If it fails to scan a message, you can make it re-scan the message by adding any reaction to the message.
 
 To get this information simply tag the bot in any channel that it has post-messages access to. 
 
-## Invite to your server
-I have stopped hosting this discord bot. Follow the steps below to self-host.
-
 ## Self-hosting
-If you would like to host this bot yourself instead of using my hosted version, follow these instructions. 
-They assume you have created an Application and registered a Bot account with Discord's Developer Portal. 
+These instructions assume you have created an Application and registered a Bot account with Discord's Developer Portal. 
 1. Download and install [Node.JS](https://nodejs.org/en/)
 2. Download this repository as a zip.
 3. Unzip the downloaded archive
