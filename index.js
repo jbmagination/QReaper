@@ -13,11 +13,12 @@ require('./server.js')
 const client = new Discord.Client();  
 client.on('ready', () => {   
     console.log(`Logged in as ${client.user.tag}`); 
-    client.user.setActivity('for QR Codes | tag me!', { type: 'WATCHING' })
+    client.user.setActivity('for bad QR Codes | tag me!', { type: 'WATCHING' })
 });
 client.on('message', async function(msg){  
     //don't scan dms or self messages
     if (msg.channel.type == "dm" || msg.author.id == client.user.id){
+        msg.channel.send("Sorry, I can't help you in DMs!")
         return;
     }
 
@@ -39,15 +40,14 @@ client.on('message', async function(msg){
 
         const embed = new Discord.RichEmbed()
         .setTitle(`About ${client.user.username}`)
-        .setAuthor(`${client.user.username} | Ravbug Software`, client.user.avatarURL)
+        .setAuthor(`${client.user.username} | Ravbug Software & JBMagination`, client.user.avatarURL)
         .setColor(msg.member.displayHexColor)
-        .setDescription("I find QR codes in messages and delete them! You must give me the __Manage Messages__ and __Add Reactions__ permissions so that I can do my job most effectively.")
-        .setFooter("© Ravbug, released open source on GitHub.", "https://avatars2.githubusercontent.com/u/22283943")
+        .setDescription("I find unsafe QR codes in messages and delete them! You must give me the __Manage Messages__ and __Add Reactions__ permissions so that I can do my job most effectively.")
+        .setFooter("© Ravbug & JBMagination, released open source on GitHub.", "https://avatars2.githubusercontent.com/u/26027089")
         .setThumbnail(client.user.avatarURL)
         .setTimestamp()
-        .addField("Hey! You missed one!", "If I miss a QR Code, you can add any reaction to that message and I will check it again. If I believe the message is clean, I will react with ✅")
+        .addField("Hey! You missed one!", "If I miss a QR Code, you can add the :question_mark: reaction to that message and I will check it again. If I believe the message is clean, I will react with ✅")
         .addField("Invite me!", `Use [my invite link](https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=10304) to add me to your server! Please give me all of the perms listed on the invite link page.`)
-        .addField("My Website", "Visit [My Website](https://qreaper.glitch.me) for information, including instructions for self-hosting me.")
         .addField("Statistics", `Uptime ${uptimestr}\nProtecting ${client.guilds.size} servers\nPing: ${client.ping}ms`);
         
         msg.channel.send({embed});
@@ -126,8 +126,8 @@ function deleteMsg(message){
     const directions = ["past","through","under"];
 
     const responses = [
-        `${rand(greetings)} <@${message.author.id}>! That's a QR Code! We don't ${rand(affirmations)} that ${rand(adjectives2)} around here!`,
-        `<@${message.author.id}> thought they could ${rand(verbs)} QR codes ${rand(directions)} me, but no dice.`,
+        `${rand(greetings)} <@${message.author.id}>! That's an unsafe QR Code! We don't ${rand(affirmations)} that ${rand(adjectives2)} around here!`,
+        `<@${message.author.id}> thought they could ${rand(verbs)} bad QR codes ${rand(directions)} me, but no dice.`,
         `<@${message.author.id}>, I'm the ${rand(adjectives)} QR code ${rand(verbs2)}er in the ${rand(places)}, and I just ${rand(verbs2)}ed yours.`,
     ];
     message.delete().catch(() => {message.channel.send("(Hey mods! I need perms to delete that!)").catch(()=>{})});
