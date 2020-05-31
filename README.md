@@ -10,6 +10,8 @@ To combat these scams, someone created this Discord Bot which scans messages for
 
 However, it, too, has a massive flaw: Not all QR codes are bad. This is fixed by checking the URL it goes to. For link shorteners, it will unshorten the URL before checking to ensure it is safe. If it's not, it will be deleted.
 
+adf.ly links are automatically deleted due to it being full of malware ads.
+
 ## How to Use
 This bot has no settings and begins working as soon as it has been added to a server. It scans all attachments and embedded images.
 
