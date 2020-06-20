@@ -15,12 +15,12 @@ This bot has no settings and begins working as soon as it has been added to a se
 
 If it fails to scan a message, you can make it re-scan the message by adding any reaction to the message.
 
-To get this information simply tag the bot in any channel that it has post-messages access to. 
+To get this information, simply tag the bot in any channel that it can post messages to. 
 
 ## Self-hosting
-These instructions assume you have created an Application and registered a Bot account with Discord's Developer Portal. 
-1. Download and install [Node.JS](https://nodejs.org/en/)
-2. Download this repository as a zip.
+These instructions assume you have created a bot account with Discord's developer portal. 
+1. Download and install [Node.js](https://nodejs.org/en/)
+2. Download this repository as a ZIP
 3. Unzip the downloaded archive
 4. In the root folder, create `env.json` and fill it with the following contents: 
 ```json
@@ -29,4 +29,4 @@ These instructions assume you have created an Application and registered a Bot a
 }
 ```
 5. Open a new terminal window at the root folder and run `npm install`
-6. Run `node index.js` to start the bot. It will print to the console the port it's running on. Visit `localhost:port-here` to view the bot's webpage.
+6. Run `node index.js` to start the bot. It will print to the console the port it's running on. Visit `localhost` to view the bot's webpage.
